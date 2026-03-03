@@ -59,45 +59,48 @@ export const PROJECTS = [
 
 export const SERVICES_DETAILED = [
   {
-    title: "Web Architecture",
-    desc: "High-performance Next.js 15+ applications with sub-second load times and SEO-first engineering.",
-    features: ["Server-Side Rendering", "Custom UI/UX Components", "Edge Functions"],
+    title: "Basic Website",
+    tag: "Tier 1",
+    bestFor: "Small businesses, portfolios, landing pages",
+    desc: "Clean and responsive websites designed to establish your online presence.",
+    features: [
+      "4–6 Pages",
+      "Responsive Design",
+      "Contact Form",
+      "Basic SEO Setup"
+    ],
+    tech: "WordPress / Next.js Static / HTML-CSS",
     iconName: "Globe",
-    tech: "Next.js • Tailwind v4 • Framer Motion"
+    startingPrice: "PKR 16,000"
   },
   {
-    title: "Backend Engineering",
-    desc: "Robust, scalable API infrastructures powered by FastAPI and MongoDB for real-time data processing.",
-    features: ["FastAPI Integration", "MongoDB Aggregation", "JWT Authentication"],
-    iconName: "Cpu",
-    tech: "Python • FastAPI • MongoDB • Redis"
+    title: "Business Website",
+    tag: "Tier 2",
+    bestFor: "Businesses needing product or content management",
+    desc: "Dynamic websites with admin control and database integration.",
+    features: [
+      "Admin Dashboard",
+      "Product Management",
+      "Authentication",
+      "Hosting Setup"
+    ],
+    tech: "WordPress + WooCommerce / Shopify / Next.js + Backend",
+    iconName: "ShoppingCart",
+    startingPrice: "PKR 55,000"
   },
   {
-    title: "Web Apps & Games",
-    desc: "Interactive digital experiences and complex web applications with real-time state management.",
-    features: ["Android APK Deployment", "Real-time Leaderboards", "Interactive Dashboards"],
-    iconName: "Gamepad2",
-    tech: "React • FastAPI • WebGL • Unity"
-  },
-  {
-    title: "E-Commerce Systems",
-    desc: "Custom storefronts and Shopify Liquid development focused on conversion and high-volume traffic.",
-    features: ["Shopify Theme Dev", "Custom Checkout Flows", "Inventory Sync"],
-    iconName: "ShoppingBag",
-    tech: "Shopify • Liquid • Hydrogen • Next.js"
-  },
-  {
-    title: "CMS & WordPress",
-    desc: "Professional WordPress deployments and custom theme development for corporate visibility.",
-    features: ["Custom PHP Themes", "WooCommerce Setup", "SEO Optimization"],
-    iconName: "LayoutTemplate",
-    tech: "WordPress • PHP • MySQL • Elementor"
-  },
-  {
-    title: "Enterprise ERP",
-    desc: "Internal management tools and warehouse systems to streamline corporate operations.",
-    features: ["Inventory Tracking", "Automated Reporting", "Multi-user Roles"],
-    iconName: "Factory",
-    tech: "Next.js • FastAPI • PostgreSQL"
+    title: "Custom Web Application",
+    tag: "Tier 3",
+    bestFor: "Startups and scalable digital platforms",
+    desc: "Fully custom full-stack applications built around your business logic.",
+    features: [
+      "Custom Frontend (Next.js)",
+      "Backend APIs (FastAPI / Node)",
+      "Database Architecture",
+      "Admin Dashboard"
+    ],
+    tech: "Next.js + FastAPI / PostgreSQL",
+    iconName: "Server",
+    startingPrice: "PKR 96,000"
   }
 ];
