@@ -4,7 +4,7 @@ import { Copy, Mail, MessageCircle, Check, ArrowRight } from "lucide-react";
 
 export default function ContactPage() {
   const email = "glacialabs@gmail.com";
-  const whatsappNumber = "923169030178";
+  const whatsappNumber = "923413975290";
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {

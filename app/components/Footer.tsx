@@ -3,7 +3,8 @@ import {
   Instagram, 
   Facebook, 
   Mail, 
-  ArrowUpRight 
+  ArrowUpRight ,
+  MessageCircle
 } from "lucide-react";
 
 export default function Footer() {
@@ -19,33 +20,47 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-16">
           
           {/* Brand Section: Spans 2 columns on desktop */}
-          <div className="sm:col-span-2">
-            <Link href="/" className="text-2xl font-black tracking-tighter mb-6 block uppercase italic">
-              GLACIA<span className="text-glacia-green">LABS</span>
-            </Link>
-            <p className="text-slate-500 text-sm max-w-sm leading-relaxed mb-8 font-medium">
-              The technology division of Glacia Connection. Specializing in high-performance 
-              Next.js architectures and FastAPI backends for Pakistan’s next generation of digital products.
-            </p>
-            
-            <div className="flex gap-4">
-              {[
-                { Icon: Instagram, href: "https://www.instagram.com/glacialabs?igsh=cXE1aGpvNXl4eXJ6", label: "Instagram" },
-                { Icon: Facebook, href: "https://www.instagram.com/glacialabs?igsh=cXE1aGpvNXl4eXJ6", label: "Facebook" },
-              ].map((social, i) => (
-                <a 
-                  key={i} 
-                  href={social.href} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="p-3 rounded-xl bg-white/[0.03] border border-white/5 text-slate-400 hover:text-glacia-green hover:border-glacia-green/30 transition-all hover:-translate-y-1 shadow-lg"
-                >
-                  <social.Icon size={20} />
-                </a>
-              ))}
-            </div>
-          </div>
+         <div className="sm:col-span-2">
+  <Link href="/" className="text-2xl font-black tracking-tighter mb-6 block uppercase italic">
+    GLACIA<span className="text-glacia-green">LABS</span>
+  </Link>
+  
+  <p className="text-slate-500 text-sm max-w-sm leading-relaxed mb-8 font-medium">
+    We build fast, modern websites and apps. 
+    Helping businesses in Pakistan and beyond reach their full digital potential.
+  </p>
+  
+  <div className="flex flex-wrap gap-4">
+    {[
+      { 
+        Icon: Instagram, 
+        href: "https://www.instagram.com/glacialabs?igsh=cXE1aGpvNXl4eXJ6", 
+        label: "Instagram" 
+      },
+      { 
+        Icon: Facebook, 
+        href: "https://www.instagram.com/glacialabs?igsh=cXE1aGpvNXl4eXJ6", // Update this link
+        label: "Facebook" 
+      },
+      { 
+        Icon: MessageCircle, 
+        href: "https://wa.me/923413975290", // Replace with your WhatsApp number
+        label: "WhatsApp" 
+      },
+    ].map((social, i) => (
+      <a 
+        key={i} 
+        href={social.href} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        aria-label={social.label}
+        className="p-3 rounded-xl bg-white/[0.03] border border-white/5 text-slate-400 hover:text-glacia-green hover:border-glacia-green/30 transition-all hover:-translate-y-1 shadow-lg"
+      >
+        <social.Icon size={20} />
+      </a>
+    ))}
+  </div>
+</div>
 
           {/* Navigation Links */}
           <div className="mt-2 sm:mt-0">
