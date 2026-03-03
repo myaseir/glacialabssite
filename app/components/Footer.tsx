@@ -30,8 +30,8 @@ export default function Footer() {
             
             <div className="flex gap-4">
               {[
-                { Icon: Instagram, href: "https://instagram.com/glacialabs", label: "Instagram" },
-                { Icon: Facebook, href: "https://facebook.com/glacialabs", label: "Facebook" },
+                { Icon: Instagram, href: "https://www.instagram.com/glacialabs?igsh=cXE1aGpvNXl4eXJ6", label: "Instagram" },
+                { Icon: Facebook, href: "https://www.instagram.com/glacialabs?igsh=cXE1aGpvNXl4eXJ6", label: "Facebook" },
               ].map((social, i) => (
                 <a 
                   key={i} 
