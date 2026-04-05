@@ -6,53 +6,85 @@ export const NAV_LINKS = [
 ];
 
 export const PROJECTS = [
-    {
+  {
+    name: "NUMRA BEAUTY",
+    tag: "Luxury Wellness • Beauty",
+    tech: "Next.js • Tailwind CSS • Framer Motion",
+    description: "An exclusive sanctuary focusing on the harmony of color and tone for bespoke bridal and hair services.",
+    iconName: "Sparkles",
+    link: "https://numra-beta.vercel.app",
+    size: "large" // Featured top project
+  },
+  {
+    name: "CAKES BY KULSOOM",
+    tag: "Artisanal Kitchen",
+    tech: "Next.js • Visual Storytelling • High-End Baking",
+    description: "The intersection of fine art and high-end baking, featuring hand-crafted sugar flowers and signature flavor profiles.",
+    iconName: "Utensils",
+    link: "https://cakebykulsoom.vercel.app",
+    size: "small"
+  },
+  {
+    name: "AWAIS TRADER",
+    tag: "Industrial Maintenance",
+    tech: "React • SEO • Performance • Service Portal",
+    description: "Modernizing specialized maintenance for professional window cleaning, solar panel washing, and building maintenance.",
+    iconName: "Droplets",
+    link: "https://awais-trader.vercel.app",
+    size: "small"
+  },
+  {
     name: "Brain Buffer Game",
     tag: "Gaming / Web App",
     tech: "FastAPI • MongoDB • Android APK",
+    description: "A high-performance gaming platform with integrated reward buffers and complex backend logic.",
     iconName: "Gamepad2",
     link: "https://www.brainbufferofficial.com",
     size: "large"
   },
   {
-    name: "Glacia Electronic Store",
-    tag: "E-Commerce",
-    tech: "Next.js • FastAPI • MongoDB",
-    iconName: "Smartphone",
-    link: "https://circuit-sphere-ecommerce-7b5k.vercel.app", 
-    size: "small"
-  },
-
-  {
-    name: "Hotel Sarfaranga Skardu",
-    tag: "Hospitality",
-    tech: "Next.js • Framer Motion",
-    iconName: "Hotel", // We will map these to Lucide icons
-    link: "https://sarfarangahotel-git-main-tech-glacia.vercel.app",
-    size: "small"
-  },
-  {
     name: "Warehouse Balance Pro",
     tag: "Enterprise ERP",
     tech: "Next.js • MongoDB • FastAPI",
+    description: "A full-scale inventory management system built for high-accuracy tracking and enterprise logistics.",
     iconName: "PackageCheck",
     link: "https://warehouse-beige-eight.vercel.app",
-    size: "large"
+    size: "small"
+  },
+  {
+    name: "Glacia Electronic Store",
+    tag: "E-Commerce",
+    tech: "Next.js • FastAPI • MongoDB",
+    description: "High-speed digital storefront optimized for electronics with a custom-built API layer.",
+    iconName: "Smartphone",
+    link: "https://circuit-sphere-ecommerce-7b5k.vercel.app", 
+    size: "small"
   },
   {
     name: "ZADAIN'S Clothing",
     tag: "Fashion",
     tech: "Next.js • React • FastAPI",
+    description: "A sleek, minimalist clothing brand experience with integrated product discovery.",
     iconName: "Shirt",
     link: "https://zadain-clothing.vercel.app",
-    size: "small"
+    size: "large"
   },
   {
     name: "Luxe Decor WP",
     tag: "WordPress",
     tech: "WooCommerce • MySQL",
+    description: "A luxury interior design shop powered by a highly customized WordPress engine.",
     iconName: "LayoutTemplate",
     link: "#",
+    size: "small"
+  },
+  {
+    name: "Hotel Sarfaranga Skardu",
+    tag: "Hospitality",
+    tech: "Next.js • Framer Motion",
+    description: "Digital presence for a premium hotel in the heart of Skardu, featuring smooth cinematic transitions.",
+    iconName: "Hotel",
+    link: "https://sarfarangahotel-git-main-tech-glacia.vercel.app",
     size: "small"
   }
 ];
