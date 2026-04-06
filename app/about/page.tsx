@@ -1,4 +1,4 @@
-import { Target, Cpu, Globe, Zap, Shield, Layout, Mail, Phone, CheckCircle2 } from 'lucide-react';
+import { Target, Cpu, Globe, Zap, Shield, Layout, Mail, Phone, CheckCircle2, User } from 'lucide-react';
 
 export default function About() {
   const stats = [
@@ -36,7 +36,7 @@ export default function About() {
               <span className="w-8 h-[1px] bg-glacia-green"></span>
               Who We Are
             </h2>
-            <h3 className="text-4xl md:text-7xl font-black italic uppercase tracking-tighter leading-none mb-8">
+            <h3 className="text-4xl md:text-7xl font-black italic uppercase tracking-tighter leading-none mb-8 text-white">
               We build <span className="text-glacia-green">better</span> <br /> 
               ways to work online.
             </h3>
@@ -80,8 +80,50 @@ export default function About() {
           </div>
         </div>
 
-        {/* Right Side: CEO & Lead Card */}
-      
+        {/* Right Side: CEO Detail Card */}
+        <div className="lg:col-span-5 sticky top-32">
+          <div className="relative p-8 rounded-3xl bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 overflow-hidden group">
+            {/* Background Accent Decor */}
+            <div className="absolute -top-24 -right-24 w-64 h-64 bg-glacia-green/10 blur-[100px] rounded-full group-hover:bg-glacia-green/20 transition-colors duration-700"></div>
+            
+            <div className="relative z-10">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-16 h-16 rounded-2xl bg-glacia-green/20 flex items-center justify-center border border-glacia-green/30 text-glacia-green">
+                  <User size={32} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-2xl font-bold text-white tracking-tight">Muhammad Yasir</h4>
+                  <p className="text-glacia-green font-mono text-[10px] uppercase tracking-widest">CEO & Backend Engineer</p>
+                </div>
+              </div>
+
+              <div className="space-y-4 pt-6 border-t border-white/5">
+                <a href="mailto:muhd.yaseir@gmail.com" className="flex items-center gap-4 text-slate-400 hover:text-white transition-colors group/link">
+                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover/link:bg-glacia-green/10 group-hover/link:text-glacia-green transition-all">
+                    <Mail size={18} />
+                  </div>
+                  <span className="text-sm font-medium">muhd.yaseir@gmail.com</span>
+                </a>
+
+                <a href="tel:+923169030178" className="flex items-center gap-4 text-slate-400 hover:text-white transition-colors group/link">
+                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover/link:bg-glacia-green/10 group-hover/link:text-glacia-green transition-all">
+                    <Phone size={18} />
+                  </div>
+                  <span className="text-sm font-medium">+92 316 9030178</span>
+                </a>
+              </div>
+
+              <div className="mt-8 p-4 rounded-xl bg-glacia-green/5 border border-glacia-green/10">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="text-glacia-green mt-1" size={16} />
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    Leading the technical architecture and backend strategy for Glacia Labs projects.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </section>
