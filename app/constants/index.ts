@@ -25,6 +25,15 @@ export const PROJECTS = [
     size: "small"
   },
   {
+  name: "NAZARA HOTEL",
+  tag: "Mountain Sanctuary",
+  tech: "Next.js • Luxury Hospitality • Framer Motion",
+  description: "A premier boutique retreat in Skardu, where rugged stone architecture and hand-carved timber meet panoramic Himalayan vistas.",
+  iconName: "Mountain", // Changed from Utensils to reflect the landscape
+  link: "https://nazara-hotel.vercel.app/",
+  size: "small"
+},
+  {
     name: "AWAIS TRADER",
     tag: "Industrial Maintenance",
     tech: "React • SEO • Performance • Service Portal",

@@ -81,57 +81,7 @@ export default function About() {
         </div>
 
         {/* Right Side: CEO & Lead Card */}
-        <aside className="lg:col-span-5 lg:sticky lg:top-32">
-          <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-br from-glacia-green/40 to-transparent blur-sm rounded-[2.5rem] opacity-20 group-hover:opacity-40 transition-opacity" />
-            
-            <div className="relative bg-[#030712] rounded-[2.5rem] p-8 md:p-12 border border-white/5 overflow-hidden">
-              {/* Background texture */}
-              <div className="absolute top-0 right-0 p-8 opacity-[0.03] text-white">
-                <Cpu size={120} />
-              </div>
-
-              <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-glacia-green/10 text-glacia-green text-[9px] font-bold uppercase tracking-widest mb-8">
-                   <CheckCircle2 size={10} /> Verified Lead
-                </div>
-
-                <div className="mb-10">
-                  <h4 className="text-3xl font-black italic uppercase tracking-tighter text-white mb-1">
-                    Muhammad Yasir <span className="text-glacia-green">_</span>
-                  </h4>
-                  <p className="text-sm font-mono text-slate-500 uppercase tracking-widest">
-                    CEO & Backend Engineer
-                  </p>
-                </div>
-
-                <div className="space-y-4 mb-10">
-                  <a href="mailto:muhd.yaseir@gmail.com" className="flex items-center gap-4 text-slate-400 hover:text-white transition-colors group/link">
-                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover/link:bg-glacia-green/20">
-                      <Mail size={18} className="text-glacia-green" />
-                    </div>
-                    <span className="text-sm font-medium">muhd.yaseir@gmail.com</span>
-                  </a>
-                  
-                  <a href="tel:+923169030178" className="flex items-center gap-4 text-slate-400 hover:text-white transition-colors group/link">
-                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover/link:bg-glacia-green/20">
-                      <Phone size={18} className="text-glacia-green" />
-                    </div>
-                    <span className="text-sm font-medium">+92 316 9030178</span>
-                  </a>
-                </div>
-
-                <div className="pt-8 border-t border-white/5">
-                  <p className="text-[11px] text-slate-500 uppercase tracking-widest mb-4">Core Philosophy</p>
-                  <p className="text-slate-400 italic text-sm leading-relaxed">
-                    "We follow rigid backend architecture rules to ensure your system 
-                    remains fast, scalable, and works perfectly for years to come."
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </aside>
+      
 
       </div>
     </section>

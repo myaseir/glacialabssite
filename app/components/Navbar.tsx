@@ -1,14 +1,13 @@
 "use client";
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Handle scroll effect for glassmorphism
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
@@ -34,25 +33,25 @@ export default function Navbar() {
     <>
       {/* MAIN NAVIGATION */}
       <nav className={`fixed top-0 w-full z-[120] transition-all duration-500 ${
-        scrolled || isOpen ? 'py-4 bg-black/60 backdrop-blur-sm border-b border-white/10' : 'py-6 bg-transparent'
+        scrolled || isOpen ? 'py-4 bg-black/80 backdrop-blur-md border-b border-white/5' : 'py-6 bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           
-          {/* LOGO SECTION */}
-         <Link href="/" className="group flex items-center gap-4 outline-none">
-  <div className="relative w-30 h-30 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-    <Image
-      src="/logo.png" // Path to your logo in the /public folder
-      alt="Glacia Labs Logo"
-      fill
-      className="object-contain"
-      priority // Ensures the logo loads instantly
-    />
-  </div>
-  <span className="text-xl font-bold tracking-[0.2em] text-white transition-colors uppercase">
-    Glacia<span className="text-glacia-green font-light">Labs</span>
-  </span>
-</Link>
+          {/* LOGO SECTION - Responsive Sizing */}
+          <Link href="/" className="group flex items-center gap-3 outline-none">
+            <div className="relative w-8 h-8 md:w-10 md:h-10 transition-transform duration-300 group-hover:rotate-3">
+              <Image
+                src="/logo.png"
+                alt="Glacia Labs Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <span className="text-sm md:text-xl font-bold tracking-[0.2em] text-white uppercase">
+              Glacia<span className="text-glacia-green font-light">Labs</span>
+            </span>
+          </Link>
           
           {/* DESKTOP MENU */}
           <div className="hidden md:flex items-center gap-12">
@@ -71,64 +70,70 @@ export default function Navbar() {
             
             <Link 
               href="/contact" 
-              className="group relative overflow-hidden bg-white text-black px-7 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all hover:scale-105 active:scale-95"
+              className="bg-white text-black px-7 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all hover:scale-105"
             >
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="flex items-center gap-2">
                 Start a Project <ArrowUpRight size={14} />
               </span>
             </Link>
           </div>
 
-          {/* MOBILE TOGGLE */}
+          {/* MOBILE TOGGLE - Clean alignment */}
           <button 
             onClick={toggleMenu}
-            className="md:hidden relative w-10 h-10 flex items-center justify-center text-white z-[130]"
+            className="md:hidden relative flex flex-col gap-1.5 items-end z-[130]"
             aria-label="Toggle Menu"
           >
-            <div className="flex flex-col gap-1.5 items-end">
-              <span className={`h-[2px] bg-white transition-all duration-300 ${isOpen ? 'w-6 rotate-45 translate-y-[8px]' : 'w-8'}`} />
-              <span className={`h-[2px] bg-glacia-green transition-all duration-300 ${isOpen ? 'opacity-0' : 'w-5'}`} />
-              <span className={`h-[2px] bg-white transition-all duration-300 ${isOpen ? 'w-6 -rotate-45 -translate-y-[8px]' : 'w-6'}`} />
-            </div>
+            <span className={`h-[1.5px] bg-white transition-all duration-300 ${isOpen ? 'w-6 rotate-45 translate-y-[7.5px]' : 'w-7'}`} />
+            <span className={`h-[1.5px] bg-glacia-green transition-all duration-300 ${isOpen ? 'opacity-0' : 'w-4'}`} />
+            <span className={`h-[1.5px] bg-white transition-all duration-300 ${isOpen ? 'w-6 -rotate-45 -translate-y-[7.5px]' : 'w-5'}`} />
           </button>
         </div>
       </nav>
 
-      {/* FULL SCREEN MOBILE OVERLAY */}
+      {/* SMART SIDE DRAWER OVERLAY */}
       <div 
-        className={`fixed inset-0 bg-[#080808] z-[110] md:hidden transition-all duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] ${
-          isOpen ? 'clip-path-open opacity-100' : 'clip-path-closed opacity-0 pointer-events-none'
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[105] md:hidden transition-opacity duration-500 ${
+          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
-        style={{
-          clipPath: isOpen ? 'circle(150% at 100% 0%)' : 'circle(0% at 100% 0%)'
-        }}
+        onClick={toggleMenu}
+      />
+
+      <div 
+        className={`fixed top-0 right-0 h-full w-[80vw] max-w-[320px] bg-[#0c0c0c] z-[110] md:hidden transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] border-l border-white/5 ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
       >
-        <div className="h-full flex flex-col justify-center px-10">
-          <div className="space-y-6">
-            <p className="text-glacia-green font-mono text-xs tracking-widest uppercase mb-4 opacity-50">Navigation</p>
-            {navLinks.map((link, i) => (
-              <Link 
-                key={link.name}
-                href={link.href}
-                onClick={toggleMenu}
-                className="block text-5xl font-bold text-white hover:text-glacia-green transition-colors lowercase tracking-tighter"
-                style={{ transitionDelay: `${i * 100}ms` }}
-              >
-                {link.name}.
-              </Link>
-            ))}
+        <div className="h-full flex flex-col justify-between px-8 py-24">
+          <div className="space-y-8">
+            <p className="text-glacia-green font-mono text-[10px] tracking-[0.3em] uppercase opacity-50">
+              Navigation
+            </p>
+            <div className="flex flex-col gap-6">
+              {navLinks.map((link, i) => (
+                <Link 
+                  key={link.name}
+                  href={link.href}
+                  onClick={toggleMenu}
+                  className="block text-2xl font-medium text-white hover:text-glacia-green transition-colors lowercase tracking-tight"
+                >
+                  {link.name}.
+                </Link>
+              ))}
+            </div>
+            
             <Link 
               href="/contact"
               onClick={toggleMenu}
-              className="inline-flex items-center gap-4 text-2xl font-light text-slate-400 hover:text-white transition-all pt-8"
+              className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-all pt-4 border-t border-white/5 w-full"
             >
-              Let's talk <ArrowUpRight size={28} className="text-glacia-green" />
+              let's talk <ArrowUpRight size={16} className="text-glacia-green" />
             </Link>
           </div>
           
-          <div className="absolute bottom-12 left-10 border-l border-white/10 pl-6">
-            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.3em]">Based in PK</p>
-            <p className="text-[10px] text-slate-600 font-mono mt-1">Available for global projects</p>
+          <div className="border-l border-glacia-green/30 pl-4">
+            <p className="text-[9px] font-bold text-slate-500 uppercase tracking-[0.2em]">Based in PK</p>
+            <p className="text-[10px] text-slate-600 font-mono mt-1">Ready for global shifts</p>
           </div>
         </div>
       </div>
