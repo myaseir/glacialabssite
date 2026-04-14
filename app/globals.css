@@ -1,41 +1,67 @@
 @import "tailwindcss";
 
 @theme {
-  --color-glacia-dark: #020617;      /* Deep Slate/Black */
-  --color-glacia-green: #10b981;     /* Vibrant Emerald */
-  --color-glacia-deep: #064e3b;      /* Forest Shadow */
-  --color-glacia-accent: #34d399;    /* Mint Glow */
+  /* Soft Luxury Canvas & Surfaces */
+  --color-glacia-canvas: #FDFBF7;     /* Warm Alabaster/Beige base */
+  --color-glacia-surface: #FFFFFF;    /* Pure white for cards */
+  --color-glacia-alt: #F3EFEA;        /* Slightly darker beige for sections */
   
-  --radius-bento: 2rem;
-  --shadow-glow: 0 0 30px rgba(16, 185, 129, 0.15);
+  /* Refined Typography Colors */
+  --color-glacia-dark: #292524;       /* Deep Stone/Charcoal for Headings */
+  --color-glacia-muted: #78716C;      /* Muted Stone for Body Text */
+  --color-glacia-border: #E7E5E4;     /* Subtle borders */
+  
+  /* Signature Accents */
+  --color-glacia-emerald: #047857;    /* Grounded, premium emerald */
+  --color-glacia-accent: #10B981;     /* Brighter green for active indicators */
+  
+  /* Architectural Shadows */
+  --shadow-tactile: 0 8px 30px rgba(0, 0, 0, 0.04);
+  --shadow-emerald: 0 8px 30px rgba(4, 120, 87, 0.08);
 }
 
+/* Base Body Configuration */
 body {
-  background-color: var(--color-glacia-dark);
-  color: #f8fafc;
-  /* Ambient "Northern Lights" background glow */
-  background-image: 
-    radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 100% 100%, rgba(52, 211, 153, 0.05) 0%, transparent 40%);
-  background-attachment: fixed;
+  background-color: var(--color-glacia-canvas);
+  color: var(--color-glacia-dark);
+  
+  /* Smooth anchor scrolling for the #services links */
+  scroll-behavior: smooth;
+  
+  /* High-end editorial text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.glass-bento {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+/* Custom Highlight Color */
+::selection {
+  background-color: #D1FAE5; /* Soft Emerald */
+  color: #064E3B;            /* Deep Emerald Text */
 }
 
-.glass-bento:hover {
-  border-color: var(--color-glacia-green);
-  background: rgba(16, 185, 129, 0.03);
-  box-shadow: var(--shadow-glow);
+/* Refined Bento Card
+  Replaces the dark glass-bento with a tactile, editorial surface
+*/
+.bento-card {
+  background: var(--color-glacia-surface);
+  border: 1px solid var(--color-glacia-border);
+  border-radius: 2rem;
+  box-shadow: var(--shadow-tactile);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+
+.bento-card:hover {
+  box-shadow: var(--shadow-emerald);
+  border-color: rgba(4, 120, 87, 0.2);
+  transform: translateY(-2px);
 }
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+/* Subtle, non-intrusive animations */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
 }

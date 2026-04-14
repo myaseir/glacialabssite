@@ -1,83 +1,137 @@
 "use client";
+
 import { useState } from 'react';
-import BentoGrid from "../components/BentoGrid";
-import { PROJECTS } from "../constants";
-import { ExternalLink, Sparkles, Droplets, Utensils } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 
-export default function WorkPage() {
-  const [activeTab, setActiveTab] = useState("All");
+// Mock data - replace with your actual 20+ websites
 
-  const tabs = ["All", "Next.js", "FastAPI", "E-Commerce", "Service-Based"];
+import { BRAND_ARCHIVE } from "../constants";
+export default function BrandArchivePage() {
+  const [activeFilter, setActiveFilter] = useState("All");
+  
+  // Extract unique categories for the filter tabs
+  const categories = ["All", ...Array.from(new Set(BRAND_ARCHIVE.map(item => item.category)))];
+
+  // Filter logic
+  const filteredProjects = activeFilter === "All" 
+    ? BRAND_ARCHIVE 
+    : BRAND_ARCHIVE.filter(project => project.category === activeFilter);
 
   return (
-    <main className="pt-32 pb-20 px-6 max-w-7xl mx-auto min-h-screen">
-      {/* Header Section */}
-      <section className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-10">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-glacia-green text-[10px] font-black uppercase tracking-[0.2em] mb-6">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-glacia-green opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-glacia-green"></span>
-            </span>
-            Our Archive
-          </div>
-          
-          <h1 className="text-6xl md:text-8xl font-black italic mb-8 tracking-tighter leading-[0.9]">
-            SELECTED <br />
-            <span className="text-glacia-green not-italic">WORKS_</span>
-          </h1>
-          
-          <p className="text-slate-400 text-xl font-light leading-relaxed max-w-xl">
-            From high-performance <span className="text-white">Next.js</span> storefronts to artisan 
-            service platforms. We build digital legacies, not just websites.
-          </p>
-        </div>
-
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap gap-2 md:pb-4">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-300 border ${
-                activeTab === tab 
-                ? "bg-glacia-green text-black border-glacia-green" 
-                : "bg-transparent text-slate-500 border-white/10 hover:border-white/40"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* Grid Section */}
-      <div className="relative group">
-        <div className="absolute -inset-1 bg-gradient-to-r from-glacia-green/20 to-transparent blur-3xl opacity-20 group-hover:opacity-30 transition-opacity" />
-        <BentoGrid projects={PROJECTS} activeFilter={activeTab} />
-      </div>
-      
-      {/* Visual CTA Footer */}
-      <section className="mt-32 relative overflow-hidden rounded-[4rem] bg-[#0a0a0a] border border-white/5 p-12 md:p-24 text-center">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-glacia-green/10 blur-[120px]" />
+    <main className="min-h-screen bg-[#FDFBF7] pt-32 md:pt-44 pb-24 px-4 md:px-6">
+      <div className="max-w-7xl mx-auto">
         
-        <div className="relative z-10">
-          <h3 className="text-4xl md:text-6xl font-black italic tracking-tighter mb-6">
-            READY TO <span className="text-glacia-green">SCALE?</span>
-          </h3>
-          <p className="text-slate-400 max-w-lg mx-auto mb-12 text-lg font-light">
-            Whether it's a high-scale ERP or a boutique luxury brand, 
-            we have the stack to bring your vision to life.
-          </p>
+        {/* Page Header */}
+        <header className="mb-20 md:mb-32">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
+            <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-stone-200 bg-white shadow-sm text-emerald-700 text-[10px] font-semibold tracking-widest uppercase mb-8">
+                Brand Architecture
+              </div>
+              
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-tight mb-8 leading-[1.1] text-stone-800">
+                The Brand <br className="hidden md:block"/>
+                <span className="font-serif italic text-emerald-700">Archive.</span>
+              </h1>
+              
+              <p className="text-stone-500 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
+                A comprehensive index of our bespoke digital storefronts, corporate identities, and aesthetic deployments across multiple industries.
+              </p>
+            </div>
+
+            {/* Filter Pills */}
+            <div className="flex flex-wrap gap-3 lg:pb-4 lg:max-w-md lg:justify-end">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveFilter(cat)}
+                  className={`px-5 py-2.5 rounded-full text-[10px] font-semibold uppercase tracking-widest transition-all duration-300 border ${
+                    activeFilter === cat 
+                    ? "bg-stone-800 text-white border-stone-800 shadow-md" 
+                    : "bg-white text-stone-500 border-stone-200 hover:border-stone-400 hover:text-stone-700"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+        </header>
+
+        {/* The Directory List */}
+        <section className="bg-white border border-stone-200 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.02)] overflow-hidden">
           
-          <a 
-            href="/contact" 
-            className="inline-flex items-center gap-4 bg-white text-black px-10 py-5 rounded-full text-sm font-black uppercase tracking-[0.2em] hover:scale-105 active:scale-95 transition-all"
-          >
-            Start a Project <ExternalLink size={20} />
-          </a>
-        </div>
-      </section>
+          {/* Table Header (Hidden on Mobile) */}
+          <div className="hidden md:grid grid-cols-12 gap-4 py-6 px-8 text-[10px] font-mono uppercase tracking-[0.2em] text-stone-400 border-b border-stone-100 bg-[#FDFBF7]/50">
+            <div className="col-span-1">Year</div>
+            <div className="col-span-5">Client / Brand</div>
+            <div className="col-span-3">Deployment Type</div>
+            <div className="col-span-2">Industry</div>
+            <div className="col-span-1 text-right">Link</div>
+          </div>
+
+          {/* Directory Items */}
+          <div className="flex flex-col">
+            {filteredProjects.map((project, index) => (
+              <a 
+                key={index} 
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 py-6 md:py-8 px-6 md:px-8 border-b border-stone-100 last:border-0 hover:bg-[#FDFBF7] transition-colors duration-300 items-start md:items-center relative"
+              >
+                {/* Mobile Top Row */}
+                <div className="md:hidden flex justify-between items-center w-full mb-3">
+                  <span className="text-[10px] font-mono text-stone-400">{project.year}</span>
+                  <div className="p-2 rounded-full bg-stone-50 text-stone-400 group-hover:bg-emerald-50 group-hover:text-emerald-700 transition-colors">
+                    <ExternalLink size={14} />
+                  </div>
+                </div>
+
+                {/* Desktop Year */}
+                <div className="hidden md:block col-span-1 text-xs font-mono text-stone-400 group-hover:text-emerald-700 transition-colors">
+                  {project.year}
+                </div>
+                
+                {/* Project Name */}
+                <div className="col-span-5 text-2xl md:text-3xl font-light text-stone-800 group-hover:text-emerald-800 transition-all duration-300 md:group-hover:translate-x-2 w-full">
+                  {project.name}
+                </div>
+                
+                {/* Meta Tags for Mobile */}
+                <div className="md:hidden flex flex-wrap gap-2 mt-2">
+                  <span className="px-3 py-1 rounded-full bg-stone-100 text-[10px] text-stone-500 uppercase tracking-widest">{project.type}</span>
+                  <span className="px-3 py-1 rounded-full bg-stone-100 text-[10px] text-stone-500 uppercase tracking-widest">{project.category}</span>
+                </div>
+
+                {/* Desktop Meta Data */}
+                <div className="hidden md:block col-span-3 text-sm text-stone-500 font-light group-hover:text-stone-900 transition-colors">
+                  {project.type}
+                </div>
+                
+                <div className="hidden md:block col-span-2 text-sm text-stone-500 font-light group-hover:text-stone-900 transition-colors">
+                  {project.category}
+                </div>
+                
+                {/* Desktop Link Icon */}
+                <div className="hidden md:flex col-span-1 justify-end items-center">
+                  <div className="w-12 h-12 rounded-full border border-stone-200 flex items-center justify-center bg-white group-hover:border-emerald-700/30 group-hover:bg-emerald-50 transition-all duration-300 group-hover:scale-105 shadow-sm group-hover:shadow-md">
+                    <ArrowUpRight size={20} strokeWidth={1.5} className="text-stone-400 group-hover:text-emerald-700 transition-colors" />
+                  </div>
+                </div>
+              </a>
+            ))}
+            
+            {/* Empty State (if filter yields no results) */}
+            {filteredProjects.length === 0 && (
+              <div className="py-20 text-center text-stone-500 font-light">
+                No projects found in this category.
+              </div>
+            )}
+          </div>
+        </section>
+
+      </div>
     </main>
   );
 }
