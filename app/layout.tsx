@@ -15,51 +15,67 @@ const geistMono = Geist_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#030712",
+  themeColor: "#064e3b", 
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata: Metadata = {
-  // Title Template: "Contact | Glacia Labs"
   title: {
-    default: "Glacia Connection | Next-Gen Digital Solutions & eSports",
+    default: "Glacia Labs | Architectural Software Studio Islamabad",
     template: "%s | Glacia Labs",
   },
-  description: "Glacia Labs is a boutique development studio engineering high-performance Web Apps, eSports platforms, and E-commerce solutions in Pakistan.",
-  keywords: ["Web Development Pakistan", "Next.js Developer Rawalpindi", "eSports Platform Design", "Glacia Labs", "Software Agency Pakistan"],
+  description: "Islamabad's boutique software engineering studio. We architect high-performance Next.js sites, FastAPI backends, and luxury digital experiences for elite brands.",
+  
+  keywords: [
+    "Software House Islamabad",
+    "Next.js Expert Islamabad", 
+    "Web Development Islamabad",
+    "FastAPI Backend Developer Pakistan", 
+    "Luxury E-commerce Development",
+    "Boutique Digital Agency Islamabad",
+    "Glacia Labs Engineering"
+  ],
+  
   authors: [{ name: "Glacia Labs" }],
   creator: "Glacia Labs",
-  publisher: "Glacia Connection",
+  publisher: "Glacia Labs",
   metadataBase: new URL("https://glacialabs.com"),
   
-  // Social Media Previews (OpenGraph)
+  icons: {
+    icon: [
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
+
   openGraph: {
     type: "website",
     locale: "en_PK",
     url: "https://glacialabs.com",
-    siteName: "Glacia Connection",
-    title: "Glacia Connection | Engineering Digital Excellence",
-    description: "Specializing in high-performance Next.js architectures and digital products.",
+    siteName: "Glacia Labs",
+    title: "Glacia Labs | Engineering Digital Excellence in Islamabad",
+    description: "Architecting high-performance digital products for the hospitality, retail, and enterprise sectors of Islamabad.",
     images: [
       {
-        url: "/og-image.jpg", // Create an image in your /public folder for this
+        url: "/og-image.jpg", 
         width: 1200,
         height: 630,
-        alt: "Glacia Labs Digital Solutions",
+        alt: "Glacia Labs - Islamabad Software Architecture",
       },
     ],
   },
   
-  // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: "Glacia Labs | High-Performance Web Apps",
-    description: "Boutique development studio crafting emerald-class digital products.",
+    title: "Glacia Labs | Islamabad Software Studio",
+    description: "Premium Next.js & FastAPI engineering for high-end digital brands.",
     images: ["/og-image.jpg"],
   },
 
-  // Search Engine Directives
   robots: {
     index: true,
     follow: true,
@@ -78,19 +94,34 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Structured Data (JSON-LD) for Google to recognize you as an Agency
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": "SoftwareApplication",
     "name": "Glacia Labs",
-    "image": "https://glacialabs.com/og-image.jpg",
+    "alternateName": "Glacia Labs Islamabad",
     "url": "https://glacialabs.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Rawalpindi",
-      "addressCountry": "PK"
-    },
-    "description": "Premium Web Development and Digital Solutions Agency."
+    "logo": "https://glacialabs.com/icon.png",
+    "image": "https://glacialabs.com/og-image.jpg",
+    "description": "High-performance software studio in Islamabad specializing in Next.js, FastAPI, and bespoke digital infrastructure.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "author": {
+      "@type": "Organization",
+      "name": "Glacia Labs",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Islamabad",
+        "addressRegion": "Islamabad Capital Territory",
+        "addressCountry": "PK"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+92-316-9030178",
+        "contactType": "technical support",
+        "areaServed": "PK",
+        "availableLanguage": ["English", "Urdu"]
+      }
+    }
   };
 
   return (
@@ -102,7 +133,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#030712] text-white selection:bg-glacia-green/30 selection:text-glacia-green min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#FDFBF7] text-stone-800 selection:bg-emerald-700/10 selection:text-emerald-800 min-h-screen flex flex-col`}
       >
         <Navbar />
         <main className="flex-grow">
